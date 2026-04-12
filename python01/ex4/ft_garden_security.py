@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name: str, starting_height: float, starting_age: int) -> None:
+    def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
         self._height = 0.0
         self._age = 0
 
-        if not self.set_height(starting_height):
+        if not self.set_height(height):
             self._height = 0.0
-        if not self.set_age(starting_age):
+        if not self.set_age(age):
             self._age = 0
 
     def set_height(self, new_height: float) -> bool:
@@ -43,7 +43,7 @@ def ft_garden_securty() -> None:
     print(f"Plant created: {my_plant.show()}\n")
 
     if my_plant.set_height(25.0):
-        print(f"Height updated: {my_plant.get_height()}")
+        print(f"Height updated: {round(my_plant.get_height())}")
     if my_plant.set_age(30):
         print(f"Age updated: {my_plant.get_age()}\n")
 
