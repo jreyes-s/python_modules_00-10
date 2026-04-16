@@ -25,7 +25,7 @@ class Flower(Plant):
         self.is_blooming = True
     
     def showing(self) -> None:
-        print(super().showing())
+        super().showing()
         print(f" Color: {self.color}")
         if self.is_blooming:
             print(f"{self.name} is blooming beautifully\n\n")
@@ -55,17 +55,25 @@ class Vegetable(Plant):
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
         self.nutritional_value = nutritional_value
+        self.age_and_grow = False
 
-    def growing(self, amount) -> None:
-        return super().growing(amount)
+    def growing(self, amount: float) -> None:
+        super().growing(amount * 10)
+        self.nutritional_value += int(amount * 10)
+        self.age_and_grow = True
     
     def aging(self) -> None:
-        return super().aging()
-    
-    def showing(self, season) -> None:
-        print(super().showing())
-        print(f"harvest season: {season}")
+        for i in range(1, self.age + 1):
+            super().aging()
+        self.nutritional_value += 5
+        self.age_and_grow = True
 
+    def showing(self, season: str, days: int) -> None:
+        if (self.age_and_grow):
+            print(f"[make {self.name.lower()} grow and age for {days} days]")
+        super().showing()
+        print(f" harvest season: {season}")
+        print(f" nutritional value: {self.nutritional_value}")
 
 def ft_plant_types() -> None:
     print(f"=== Garden Plant Type ===")
@@ -82,10 +90,10 @@ def ft_plant_types() -> None:
 
     print(f"=== Vegetable ===")
     vegetable = Vegetable("Carrot", 10.0, 5, "Fall", 50)
-    vegetable.showing("Fall")
+    vegetable.showing("April", 10)
     vegetable.growing(2.0)
     vegetable.aging()
-    vegetable.showing("Fall")
+    vegetable.showing("May", 20)
 
 if __name__ == "__main__":
     ft_plant_types()
