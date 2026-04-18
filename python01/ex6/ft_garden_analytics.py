@@ -56,9 +56,8 @@ class Flower(Plant):
         if self.is_blooming:
             print(f" {self.name} is blooming beautifully")
         else:
-            print(f" Rose has not bloomed yet")
+            print(f" {self.name} has not bloomed yet")
         self.stats.show_calls += 1
-        self.statistics_show()
 
     def statistics_show(self) -> None:
         print(f"[statistics for {self.name}]")
@@ -68,11 +67,15 @@ class Flower(Plant):
 class Seed(Flower):
     def __init__(self, name: str, height: float, age: int, color: str) -> None:
         super().__init__(name, height, age, color)
-        self.seeds = 0
+        self.seed_count = 0
 
     def bloom(self) -> None:
         super().bloom()
-        self.seeds = 315
+        self.seed_count += 42
+
+    def showing(self) -> None:
+        super().showing()
+        print(f" Seeds: {self.seed_count}")
 
 
 class Tree(Plant):
@@ -141,6 +144,7 @@ def ft_garden_analytics():
     flower.bloom()
     print(f'[asking the {flower.name.lower()} to grow and bloom]')
     flower.showing()
+    flower.statistics_show()
     print()
 
     print("=== Tree")
@@ -149,7 +153,10 @@ def ft_garden_analytics():
     print(f"[asking the {tree.name.lower()} to produce shade]")
     tree.produce_shade()
     print()
-    
+
+    print("=== Seed")
+    seed = Seed("Sunflower", 80.0, 45, "yellow")
+    seed.showing()
 
 if __name__ == "__main__":
     ft_garden_analytics()
