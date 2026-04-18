@@ -136,6 +136,12 @@ def ft_garden_analytics():
     sunflower.bloom()
     sunflower.showing()
     display_plant_analytics(sunflower)
+    print()
+
+    print("=== Anonymous")
+    anonymous = Plant.anonymous()
+    anonymous.showing()
+    display_plant_analytics(anonymous)
 
 if __name__ == "__main__":
     ft_garden_analytics()
