@@ -6,8 +6,8 @@ class Plant:
         self.height = height
         self.age = age
 
-    def growing(self, amount) -> None:
-        self.height += amount
+    def growing(self) -> None:
+        self.height += 20
 
     def aging(self) -> None:
         self.age += 1
@@ -57,14 +57,14 @@ class Vegetable(Plant):
         self.nutritional_value = nutritional_value
         self.age_and_grow = False
 
-    def growing(self, amount: float) -> None:
-        super().growing(amount * 10)
-        self.nutritional_value += int(amount * 10)
+    def growing(self) -> None:
+        super().growing()
+        self.height += 22
+        self.nutritional_value += 15
         self.age_and_grow = True
     
     def aging(self) -> None:
-        for i in range(1, self.age + 1):
-            super().aging()
+        self.age += 20
         self.nutritional_value += 5
         self.age_and_grow = True
 
@@ -77,21 +77,21 @@ class Vegetable(Plant):
 
 def ft_plant_types() -> None:
     print(f"=== Garden Plant Type ===")
-    flower = Flower("Rose", 25.0, 10, "red")
+    flower = Flower("Rose", 15.0, 10, "red")
     print(f"=== Flower ===")
     flower.showing()
     flower.bloom()
     flower.showing()
 
     print(f"=== Tree ===")
-    tree = Tree("Oak", 200.0, 50, 30.0)
+    tree = Tree("Oak", 200.0, 365, 5.0)
     tree.produce_shade()
     tree.showing()
 
     print(f"=== Vegetable ===")
-    vegetable = Vegetable("Carrot", 10.0, 5, "Fall", 50)
+    vegetable = Vegetable("Tomato", 5.0, 10, "April", 0)
     vegetable.showing("April", 10)
-    vegetable.growing(2.0)
+    vegetable.growing()
     vegetable.aging()
     vegetable.showing("May", 20)
 
