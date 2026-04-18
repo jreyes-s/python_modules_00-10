@@ -99,7 +99,7 @@ class Tree(Plant):
         print(f" {self.shade_count} shade")
 
 
-class Vegetable(Plant):
+class Anonymous(Plant):
     def __init__(self, name: str, height: float, age: int, harvest_season: str, nutritional_value: int) -> None:
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
