@@ -25,7 +25,7 @@ def raise_water_problem() -> None:
     raise WaterError("Not enougth water in the tank!")
 
 
-def ft_custom_errors():
+def test_errors():
     print("=== Custom Garden Errors Demo ===\n")
 
     print("Testing PlantError...")
@@ -50,4 +50,4 @@ def ft_custom_errors():
 
 
 if __name__ == "__main__":
-    ft_custom_errors()
+    test_errors()
