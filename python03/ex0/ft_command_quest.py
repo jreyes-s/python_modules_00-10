@@ -2,7 +2,7 @@
 
 import sys
 
-def ft_args() -> None:
+def ft_command_quest() -> None:
     length = len(sys.argv)
     if length == 1:
         print("No arguments provided!")
@@ -16,4 +16,4 @@ def ft_args() -> None:
 if __name__ == "__main__":
     print("=== Command Quest ===")
     print(f"Program name: {sys.argv[0]}")
-    ft_args()
+    ft_command_quest()
