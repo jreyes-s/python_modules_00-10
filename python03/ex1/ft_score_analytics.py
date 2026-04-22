@@ -5,7 +5,7 @@ import sys
 def ft_score_analytics(score: list) -> None:
     total_players: int = len(score)
     total_score: int = sum(score)
-    average_score: float = total_score / total_players
+    average_score: float = round(total_score / total_players, 1)
     high_score: int = max(score)
     low_score: int = min(score)
     score_range: int = high_score - low_score
@@ -26,11 +26,11 @@ def main() -> None:
         return
 
     clean_scores = []    
-    for i in sys.argv[1:]:
+    for arg in sys.argv[1:]:
         try:
-            clean_scores += [int(i)]
+            clean_scores += [int(arg)]
         except ValueError:
-            print(f"Invalid parameter: '{i}'")
+            print(f"Invalid parameter: '{arg}'")
     if not clean_scores:
         print("No score provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...\n")
     else:
