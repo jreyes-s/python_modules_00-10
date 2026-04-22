@@ -14,7 +14,7 @@ def get_player_pos() -> tuple[float, ...]:
 			try:
 				tp.append(float(x.strip()))
 			except ValueError as e:
-				print(f"Error on parameter '{x}:' {e}")
+				print(f"Error on parameter '{x}': {e}")
 				break
 		else:
 			return tuple(tp)
