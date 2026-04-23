@@ -2,12 +2,24 @@
 
 import random
 
-all_possible_achievements = {'Crafting Genius', 'Strategist', 'World Savior',
-                             'Speed Runner', 'Survivor',
-                             'Master Explorer', 'Treasure Hunter',
-                             'Unstoppable', 'First Steps', 'Collector Supreme',
-                             'Untouchable', 'Sharp Mind', 'Boss Slayer', 'The King',
-                             'Your Favourite Team mamiii', 'They Call Me Romeo'}
+all_possible_achievements = {
+    'Crafting Genius',
+    'Strategist',
+    'World Savior',
+    'Speed Runner',
+    'Survivor',
+    'Master Explorer',
+    'Treasure Hunter',
+    'Unstoppable',
+    'First Steps',
+    'Collector Supreme',
+    'Untouchable',
+    'Sharp Mind',
+    'Boss Slayer',
+    'The King',
+    'Your Favourite Team mamiii',
+    'They Call Me Romeo'
+}
 
 
 def gen_player_achievements(achievement_list: list) -> set:
@@ -32,11 +44,10 @@ def main() -> None:
     print(f"\nCommon achievements: {common_achievements}\n")
 
     for p, ach in players_data.items():
-        other_achievements = set.union(
+        o_ach = set.union(
             *(players_data[name] for name in players_data if name != p))
         print(
-            f"Only {p} has: {set.difference(players_data[p], other_achievements)}")
-    print("\n")
+            f"Only {p} has: {set.difference(players_data[p], o_ach)}")
 
 
 if __name__ == "__main__":
