@@ -32,7 +32,7 @@ class Flower(Plant):
         if self.is_blooming:
             print(f"{self.name} is blooming beautifully\n\n")
         else:
-            print(f"Rose has not bloomed yet")
+            print("Rose has not bloomed yet")
 
 
 class Tree(Plant):
@@ -52,7 +52,7 @@ class Tree(Plant):
             print(
                 f"Tree Oak now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide\n\n")
         else:
-            print(f"Tree Oak doesn't produce shade")
+            print("Tree Oak doesn't produce shade")
 
 
 class Vegetable(Plant):
@@ -82,19 +82,19 @@ class Vegetable(Plant):
 
 
 def ft_plant_types() -> None:
-    print(f"=== Garden Plant Type ===")
+    print("=== Garden Plant Type ===")
     flower = Flower("Rose", 15.0, 10, "red")
-    print(f"=== Flower ===")
+    print("=== Flower ===")
     flower.showing()
     flower.bloom()
     flower.showing()
 
-    print(f"=== Tree ===")
+    print("=== Tree ===")
     tree = Tree("Oak", 200.0, 365, 5.0)
     tree.produce_shade()
     tree.showing()
 
-    print(f"=== Vegetable ===")
+    print("=== Vegetable ===")
     vegetable = Vegetable("Tomato", 5.0, 10, "April", 0)
     vegetable.showing("April", 10)
     vegetable.growing()
