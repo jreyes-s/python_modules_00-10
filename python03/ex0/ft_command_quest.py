@@ -2,6 +2,7 @@
 
 import sys
 
+
 def ft_command_quest() -> None:
     length = len(sys.argv)
     if length == 1:

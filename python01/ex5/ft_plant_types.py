@@ -14,6 +14,8 @@ class Plant:
 
     def showing(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.age} days old")
+
+
 class Flower(Plant):
     def __init__(self, name: str, height: float, age: int, color: str) -> None:
         super().__init__(name, height, age)
@@ -23,7 +25,7 @@ class Flower(Plant):
     def bloom(self) -> None:
         print(f"[asking the {self.name.lower()} to bloom]")
         self.is_blooming = True
-    
+
     def showing(self) -> None:
         super().showing()
         print(f" Color: {self.color}")
@@ -31,6 +33,7 @@ class Flower(Plant):
             print(f"{self.name} is blooming beautifully\n\n")
         else:
             print(f"Rose has not bloomed yet")
+
 
 class Tree(Plant):
     def __init__(self, name: str, height: float, age: int, trunk_diameter: float) -> None:
@@ -46,9 +49,11 @@ class Tree(Plant):
         print(f" Trunk diameter: {self.trunk_diameter}cm")
         print(f"[asking the {self.name.lower()} to produce shade]")
         if self.producing_shade:
-            print(f"Tree Oak now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide\n\n")
+            print(
+                f"Tree Oak now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide\n\n")
         else:
             print(f"Tree Oak doesn't produce shade")
+
 
 class Vegetable(Plant):
     def __init__(self, name: str, height: float, age: int, harvest_season: str, nutritional_value: int) -> None:
@@ -62,7 +67,7 @@ class Vegetable(Plant):
         self.height += 22
         self.nutritional_value += 15
         self.age_and_grow = True
-    
+
     def aging(self) -> None:
         self.age += 20
         self.nutritional_value += 5
@@ -74,6 +79,7 @@ class Vegetable(Plant):
         super().showing()
         print(f" harvest season: {season}")
         print(f" nutritional value: {self.nutritional_value}")
+
 
 def ft_plant_types() -> None:
     print(f"=== Garden Plant Type ===")
@@ -94,6 +100,7 @@ def ft_plant_types() -> None:
     vegetable.growing()
     vegetable.aging()
     vegetable.showing("May", 20)
+
 
 if __name__ == "__main__":
     ft_plant_types()

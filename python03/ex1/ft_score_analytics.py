@@ -2,6 +2,7 @@
 
 import sys
 
+
 def ft_score_analytics(score: list) -> None:
     total_players: int = len(score)
     total_score: int = sum(score)
@@ -25,7 +26,7 @@ def main() -> None:
         print("No score provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...\n")
         return
 
-    clean_scores = []    
+    clean_scores = []
     for arg in sys.argv[1:]:
         try:
             clean_scores += [int(arg)]

@@ -4,10 +4,10 @@ class Plant:
     def __init__(self, name: str, starting_height: float, starting_age) -> None:
         self.name = name
         self.starting_height = starting_height
-        self.starting_age =  starting_age
+        self.starting_age = starting_age
 
     def show(self) -> str:
-        return(f"{self.name}: {self.starting_height}cm, {self.starting_age} days old")
+        return (f"{self.name}: {self.starting_height}cm, {self.starting_age} days old")
 
 
 def ft_plant_factory() -> None:
@@ -22,6 +22,7 @@ def ft_plant_factory() -> None:
     print(f"Created: {plant3.show()}")
     print(f"Created: {plant4.show()}")
     print(f"Created: {plant5.show()}")
+
 
 if __name__ == "__main__":
     ft_plant_factory()

@@ -8,8 +8,8 @@ class Plant:
             self.show_calls = 0
 
         def display(self) -> None:
-            print(f"Stats: {self.grow_calls} grow, {self.age_calls} age, {self.show_calls} show")
-
+            print(
+                f"Stats: {self.grow_calls} grow, {self.age_calls} age, {self.show_calls} show")
 
     def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
@@ -40,6 +40,7 @@ class Plant:
         print(f"{self.name}: {self.height}cm, {self.age} days old")
         self._stats.show_calls += 1
 
+
 def display_plant_analytics(plant: Plant) -> None:
     """Unique function, not part of any class, to display stats."""
     print(f"[statistics for {plant.name}]")
@@ -59,7 +60,7 @@ class Flower(Plant):
 
     def growing(self, increment: float = 8.0) -> None:
         super().growing(increment)
-    
+
     def showing(self) -> None:
         super().showing()
         print(f" Color: {self.color}")
@@ -92,7 +93,8 @@ class Tree(Plant):
 
     def produce_shade(self) -> None:
         self.shade_calls += 1
-        print(f"Tree {self.name} now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide")
+        print(
+            f"Tree {self.name} now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide")
 
     def showing(self) -> None:
         super().showing()
@@ -142,6 +144,7 @@ def ft_garden_analytics():
     anonymous = Plant.anonymous()
     anonymous.showing()
     display_plant_analytics(anonymous)
+
 
 if __name__ == "__main__":
     ft_garden_analytics()
