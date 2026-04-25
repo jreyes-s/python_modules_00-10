@@ -43,11 +43,10 @@ def main() -> None:
     print(f"\nAll distinct achievements: {all_distinct}")
     print(f"\nCommon achievements: {common_achievements}\n")
 
+    o_ach = set()
     for p, ach in players_data.items():
-        o_ach = set.union(
-            *(players_data[name] for name in players_data if name != p))
-        print(
-            f"Only {p} has: {set.difference(players_data[p], o_ach)}")
+        o_ach = set.union(*(players_data[name] for name in players_data if name != p))
+        print(f"Only {p} has: {set.difference(players_data[p], o_ach)}")
 
 
 if __name__ == "__main__":
