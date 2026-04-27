@@ -45,8 +45,15 @@ def main() -> None:
 
     o_ach = set()
     for p, ach in players_data.items():
-        o_ach = set.union(*(players_data[name] for name in players_data if name != p))
+        o_ach = set.union(*(players_data[name]
+                          for name in players_data if name != p))
         print(f"Only {p} has: {set.difference(players_data[p], o_ach)}")
+
+    other_ach = set()
+    print()
+    for p, ach in players_data.items():
+        other_ach = set.difference(all_possible_achievements, players_data[p])
+        print(f"{p} is missing: {other_ach}")
 
 
 if __name__ == "__main__":
