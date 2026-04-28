@@ -3,7 +3,7 @@
 import sys
 
 
-def check_duplicates(args) -> None:
+def check_duplicates(args: list) -> None:
     keys = [arg.split(':')[0] for arg in args if ':' in arg]
 
     seen = set()
@@ -15,6 +15,12 @@ def check_duplicates(args) -> None:
 
     for dup in duplicates:
         print(f"Redundant item '{dup}' - discarding")
+
+
+def percentage(dict_new: dict, quantity: int) -> None:
+    for k, v in dict_new.items():
+        percent = round((v * 100) / quantity, 1)
+        print(f"Item {k} presents {percent}%")
 
 
 def main() -> None:
@@ -32,24 +38,33 @@ def main() -> None:
         check_duplicates(args)
         for arg in args:
             if ':' in arg:
-                dict_new.update({arg.split(':')[0]: int(arg.split(':')[1])})
-                new_list.append(arg.split(':')[0])
+                key, value_str = arg.split(':')
+                value = int(value_str)
+
+                if key not in dict_new:
+                    dict_new[key] = value
+                    new_list.append(arg.split(':')[0])
             if ':' not in arg:
                 print(f"Error - Invalid parameter '{arg}'")
     except ValueError as e:
-        print(f"Quantity error for '{arg.split(':')[1]}': {e}")
+        print(f"Quantity error for '{arg.split(':')[0]}': {e}")
     except IndexError as e:
         print(f"IndexError: {e}")
+
     print(f"Got inventory: {dict_new}")
     print(f"Item list: {new_list}")
-    print(f"Total quantity of the {len(new_list)} items: {items_quantity}")
 
-    max_val = max(dict_new.values())
-    winner = [k for k, v in dict_new.items() if v == max_val]
-    min_val = min(dict_new.values())
-    looser = [k for k, v in dict_new.items() if v == min_val]
+    items_quantity = sum(dict_new.values())
+    print(f"Total quantity of the {len(dict_new)} items: {items_quantity}")
+
+    percentage(dict_new, items_quantity)
+
+    winner = max(dict_new, key=dict_new.get)
+    max_val = dict_new[winner]
+    loser = min(dict_new, key=dict_new.get)
+    min_val = dict_new[loser]
     print(f"Item most abundant: {winner} with quantity {max_val}")
-    print(f"Item least abundant: {looser} with quantity {min_val}")
+    print(f"Item least abundant: {loser} with quantity {min_val}")
 
     dict_new.update({'magic item': 1})
     print(f"Updated inventory: {dict_new}")
