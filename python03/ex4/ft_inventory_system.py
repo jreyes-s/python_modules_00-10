@@ -28,8 +28,6 @@ def main() -> None:
     dict_new: dict = {}
     new_list: list = list()
     items_quantity: int = 0
-    max_val = 0
-    min_val = 0
 
     if not args:
         return
@@ -58,13 +56,11 @@ def main() -> None:
     print(f"Total quantity of the {len(dict_new)} items: {items_quantity}")
 
     percentage(dict_new, items_quantity)
+    winner_name, winner_qty = max(dict_new.items(), key=lambda x: x[1])
+    loser_name, loser_qty = min(dict_new.items(), key=lambda x: x[1])
 
-    winner = max(dict_new, key=dict_new.get)
-    max_val = dict_new[winner]
-    loser = min(dict_new, key=dict_new.get)
-    min_val = dict_new[loser]
-    print(f"Item most abundant: {winner} with quantity {max_val}")
-    print(f"Item least abundant: {loser} with quantity {min_val}")
+    print(f"Item most abundant: {winner_name} with quantity {winner_qty}")
+    print(f"Item least abundant: {loser_name} with quantity {loser_qty}")
 
     dict_new.update({'magic item': 1})
     print(f"Updated inventory: {dict_new}")

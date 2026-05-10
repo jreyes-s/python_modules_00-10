@@ -16,7 +16,7 @@ class Plant:
         self.height = round(float(height), 1)
         self.age = age
         self._stats = Plant.Statistics()
-        self.shade_calls = None
+        self.shade_calls = 0
 
     @staticmethod
     def check_age(age: int) -> bool:

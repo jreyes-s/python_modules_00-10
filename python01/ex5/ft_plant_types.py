@@ -73,7 +73,7 @@ class Vegetable(Plant):
         self.nutritional_value += 5
         self.age_and_grow = True
 
-    def showing(self, season: str, days: int) -> None:
+    def showing(self, season: str = "Unknown", days: int = 0) -> None:
         if (self.age_and_grow):
             print(f"[make {self.name.lower()} grow and age for {days} days]")
         super().showing()

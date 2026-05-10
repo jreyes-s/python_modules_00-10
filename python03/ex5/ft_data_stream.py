@@ -18,14 +18,18 @@ def gen_event() -> Generator[tuple[str, str], None, None]:
     while True:
         yield (random.choice(players), random.choice(actions))
 
-"""
-def consume_event() -> Generator[tuple[str, str], None, None]:
-"""
+
+def consume_event(lista: list) -> Generator[tuple[str, str], None, None]:
+    while lista:
+        idx = random.randrange(len(lista))
+        event = lista.pop(idx)
+        print(f"Got event from list: {event}")
+        yield event
 
 
 def main() -> None:
     events = gen_event()
-    lista: list = list()
+    lista: list = []
     try:
         for i in range(1000):
             player_event = next(events)
@@ -35,8 +39,12 @@ def main() -> None:
         for _ in range(10):
             lista.append(next(events))
     except StopIteration as e:
-        print(f"Un problema ocurrio: {e}")
+        print({e})
     print(f"Built list of 10 events: {lista}")
+
+    consumer = consume_event(lista)
+    for event in consumer:
+        print(f"Remains in list: {lista}")
 
 
 if __name__ == "__main__":

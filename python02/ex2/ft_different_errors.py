@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-def garden_operations(operation_number) -> None:
+def garden_operations(operation_number: int) -> None:
     if operation_number == 0:
         int("abc")
     elif operation_number == 1:
-        _ = 1 / 0
+        1 / 0
     elif operation_number == 2:
         open("/non/existing/file", "r")
     elif operation_number == 3:
-        _ = "hello" + 123
+        "hello" + 123
     else:
         return
 
