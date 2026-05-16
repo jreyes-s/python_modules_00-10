@@ -35,7 +35,7 @@ def test_errors():
     except PlantError as e:
         print(f"Caught PlantError: {e}\n")
 
-    print(f"Testing WaterError...")
+    print("Testing WaterError...")
     try:
         raise_water_problem()
     except WaterError as e:

@@ -36,9 +36,10 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    def __init__(self, name: str, height: float, age: int, trunk_diameter: float) -> None:
+    def __init__(self,
+                 name: str, height: float, age: int, trunk: float) -> None:
         super().__init__(name, height, age)
-        self.trunk_diameter = trunk_diameter
+        self.trunk = trunk
         self.producing_shade = False
 
     def produce_shade(self) -> None:
@@ -46,31 +47,33 @@ class Tree(Plant):
 
     def showing(self) -> None:
         super().showing()
-        print(f" Trunk diameter: {self.trunk_diameter}cm")
+        print(f" Trunk diameter: {self.trunk}cm")
         print(f"[asking the {self.name.lower()} to produce shade]")
         if self.producing_shade:
-            print(
-                f"Tree Oak now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide\n\n")
+            print(f"Tree Oak now produces a shade of "
+                  f"{self.height}cm long and {self.trunk}cm wide\n\n")
         else:
             print("Tree Oak doesn't produce shade")
 
 
 class Vegetable(Plant):
-    def __init__(self, name: str, height: float, age: int, harvest_season: str, nutritional_value: int) -> None:
+    def __init__(self,
+                 name: str,
+                 height: float, age: int, season: str, nut_val: int) -> None:
         super().__init__(name, height, age)
-        self.harvest_season = harvest_season
-        self.nutritional_value = nutritional_value
+        self.season = season
+        self.nut_val = nut_val
         self.age_and_grow = False
 
     def growing(self) -> None:
         super().growing()
         self.height += 22
-        self.nutritional_value += 15
+        self.nut_val += 15
         self.age_and_grow = True
 
     def aging(self) -> None:
         self.age += 20
-        self.nutritional_value += 5
+        self.nut_val += 5
         self.age_and_grow = True
 
     def showing(self, season: str = "Unknown", days: int = 0) -> None:
@@ -78,7 +81,7 @@ class Vegetable(Plant):
             print(f"[make {self.name.lower()} grow and age for {days} days]")
         super().showing()
         print(f" harvest season: {season}")
-        print(f" nutritional value: {self.nutritional_value}")
+        print(f" nutritional value: {self.nut_val}")
 
 
 def ft_plant_types() -> None:

@@ -8,8 +8,8 @@ class Plant:
             self.show_calls = 0
 
         def display(self) -> None:
-            print(
-                f"Stats: {self.grow_calls} grow, {self.age_calls} age, {self.show_calls} show")
+            print(f"Stats: {self.grow_calls} grow, "
+                  f"{self.age_calls} age, {self.show_calls} show")
 
     def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
@@ -86,7 +86,9 @@ class Seed(Flower):
 
 
 class Tree(Plant):
-    def __init__(self, name: str, height: float, age: int, trunk_diameter: float) -> None:
+    def __init__(self,
+                 name: str,
+                 height: float, age: int, trunk_diameter: float) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter = round(float(trunk_diameter), 1)
         self.shade_calls = 0
@@ -94,7 +96,8 @@ class Tree(Plant):
     def produce_shade(self) -> None:
         self.shade_calls += 1
         print(
-            f"Tree {self.name} now produces a shade of {self.height}cm long and {self.trunk_diameter}cm wide")
+            f"Tree {self.name} now produces a shade of "
+            f"{self.height}cm long and {self.trunk_diameter}cm wide")
 
     def showing(self) -> None:
         super().showing()

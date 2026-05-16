@@ -8,7 +8,7 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 2:
         open("/non/existing/file", "r")
     elif operation_number == 3:
-        "hello" + 123
+        "hello" + 123  # type: ignore
     else:
         return
 

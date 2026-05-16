@@ -23,7 +23,8 @@ def ft_score_analytics(score: list) -> None:
 
 def main() -> None:
     if len(sys.argv) == 1:
-        print("No score provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...\n")
+        print("No score provided. Usage: python3 "
+              "ft_score_analytics.py <score1> <score2> ...\n")
         return
 
     clean_scores = []
@@ -33,7 +34,8 @@ def main() -> None:
         except ValueError:
             print(f"Invalid parameter: '{arg}'")
     if not clean_scores:
-        print("No score provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...\n")
+        print("No score provided. Usage: python3 "
+              "ft_score_analytics.py <score1> <score2> ...\n")
     else:
         ft_score_analytics(clean_scores)
 

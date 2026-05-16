@@ -14,7 +14,7 @@ class Plant:
     def set_height(self, new_height: float) -> bool:
         if new_height < 0:
             print(f"{self.name}: Error, height can't be negative")
-            print(f"Height update rejected")
+            print("Height update rejected")
             return False
         self._height = float(new_height)
         return True
@@ -22,7 +22,7 @@ class Plant:
     def set_age(self, new_age: int) -> bool:
         if new_age < 0:
             print(f"{self.name}: Error, age can't be negative")
-            print(f"Age update rejected")
+            print("Age update rejected")
             return False
         self._age = int(new_age)
         return True
@@ -38,7 +38,7 @@ class Plant:
 
 
 def ft_garden_securty() -> None:
-    print(f"== Garden Security System ==")
+    print("== Garden Security System ==")
     my_plant = Plant("Rose", 15.0, 10)
     print(f"Plant created: {my_plant.show()}\n")
 
