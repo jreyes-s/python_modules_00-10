@@ -51,7 +51,8 @@ def main(filename: str) -> None:
         lines = content.readlines()
         print("---\n")
         for line in lines:
-            print(line, end="")
+            new_line = line.rstrip("\n")
+            print(new_line)
         print("\n---")
     except (FileNotFoundError, PermissionError) as e:
         print(f"Error opening file '{filename}': {e}\n")
