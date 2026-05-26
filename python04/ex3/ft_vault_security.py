@@ -10,7 +10,7 @@ def secure_archive(filename: str, action: str = 'r', content: str = "") -> tuple
     try:
         success = True
         if (action == 'w'):
-            with open(content, action) as file:
+            with open(filename, action) as file:
                 file.write(content)
                 tp = (success, "Content successfully written to file")
         else:
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     print(secure_archive('/etc/master.passwd'))
 
     print("\nUsing 'secure_archive' to read from a regular file:")
-    print(secure_archive('../ex2/ancient_fragment.txt'))
+    print(secure_archive('ancient.txt'))
 
     print("\nUsing 'secure_archive' to write previous content to a new file:")
-    print(secure_archive('../ex2/ancient_fragment.txt', 'w', 'hola'))
+    print(secure_archive('ancient2.txt', 'w', 'holaaaaaa'))
