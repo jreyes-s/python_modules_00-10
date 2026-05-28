@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-import sys
-
-
-def secure_archive(filename: str, action: str = 'r', content: str = "") -> tuple[bool, str]:
+def secure_archive(
+        filename: str,
+        action: str = 'r',
+        content: str = "") -> tuple[bool, str]:
     success: bool = False
     tp: tuple[bool, str] = tuple()
 

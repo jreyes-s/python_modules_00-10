@@ -3,7 +3,7 @@
 if __name__ == "__main__":
     print("=== Welcome to My Garden ===")
     plant: str = "Rose"
-    height: int = 25
+    height = 25
     age: int = 30
 
     print(f"Plant: {plant}")

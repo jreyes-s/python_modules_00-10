@@ -17,7 +17,7 @@ def save_data(lines: list[str]) -> None:
     """Save the data with the # (hashtag) at the end of the line"""
     new_file = None
     new_filename = get_user_input("Enter new file name (or empty): ")
-    if new_filename != None:
+    if new_filename is not None:
         sys.stdout.write(f"Saving data to '{new_filename}'\n")
     if new_filename == "" or " " in new_filename:
         sys.stdout.write("Data not saved.")
@@ -38,7 +38,7 @@ def save_data(lines: list[str]) -> None:
             sys.stdout.flush()
             new_file.close()
         else:
-            sys.stdout.write(f"Data not saved.")
+            sys.stdout.write("Data not saved.")
 
 
 def process_data(original_lines: list[str]) -> None:
