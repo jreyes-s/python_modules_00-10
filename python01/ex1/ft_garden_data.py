@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
+from typing import Any
+
+
 class Plant:
-    def __init__(self, name: str, height: any, age: int) -> None:
+    def __init__(self, name: str, height: Any, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age

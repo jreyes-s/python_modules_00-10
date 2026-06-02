@@ -5,30 +5,19 @@ from typing import Any, List
 
 
 class DataProcessor(ABC):
-    """ Esta es una clase de prueba """
-
     def __init__(self):
         self._stored_data: List[str] = []
         self._processed_count: int = 0
 
     @abstractmethod
     def validate(self, data: Any) -> bool:
-        """ Verfica si los datos de entrada son apropiados para este procesador. """
         pass
 
+    @abstractmethod
     def ingest(self, data: Any) -> None:
-        """ Procesa y almacena los datos de entrada. """
-        if not self.validate(data):
-            raise ValueError(
-                f"Improper numeric data")
-        if isinstance(data, list):
-            for item in data:
-                self._stored_data.append(str(item))
-        else:
-            self._stored_data.append(str(data))
+        pass
 
     def output(self) -> tuple[int, str]:
-        """ Extrae el dato más antiguo almacenado y su rango de procesamiento. """
         if not self._stored_data:
             raise IndexError("No data available.")
 
@@ -48,6 +37,15 @@ class NumericProcessor(DataProcessor):
             return True
         return False
 
+    def ingest(self, data: Any) -> None:
+        if not self.validate(data):
+            raise ValueError("Improper numeric data")
+        if isinstance(data, list):
+            for item in data:
+                self._stored_data.append(str(item))
+        else:
+            self._stored_data.append(str(data))
+
 
 class TextProcessor(DataProcessor):
     def validate(self, data: Any) -> bool:
@@ -56,6 +54,15 @@ class TextProcessor(DataProcessor):
         if isinstance(data, str):
             return True
         return False
+
+    def ingest(self, data: Any) -> None:
+        if not self.validate(data):
+            raise ValueError("Improper text data")
+        if isinstance(data, list):
+            for item in data:
+                self._stored_data.append(item)
+        else:
+            self._stored_data.append(data)
 
 
 class LogProcessor(DataProcessor):
